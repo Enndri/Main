@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" id="myInput" onkeyup="search()" placeholder="Search for names..."/>
+    
+    <ul id="myList">
+        <li>Ana</li>
+        <li>Ana</li>
+        <li>Hana</li>
+        <li>Era</li>
+        <li>Olti</li>
+        <li>Bora</li>
+    </ul>
+
+    <script>
+        function search() {
+            var input, filter, ul, li, txtValue;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase(); // Correct the filter assignment
+            ul = document.getElementById("myList"); // Get the ul element by id
+            li = ul.getElementsByTagName("li"); // Get all li elements within the ul
+            
+            for (var i = 0; i < li.length; i++) {
+                txtValue = li[i].textContent || li[i].innerText; // Get the text of each li
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "block"; // Show the li if it matches
+                } else {
+                    li[i].style.display = "none"; // Hide the li if it doesn't match
+                }
+            }
+        }
+    </script>
+    
+</body>
+</html>
